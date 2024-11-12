@@ -1,0 +1,20 @@
+version: '3.8'
+
+services:
+  db:
+    image: mysql:latest
+    environment:
+      MYSQL_ROOT_USER: ${DB_USERNAME}
+      MYSQL_ROOT_PASSWORD: ${DB_PASSWORD}
+      DB_DATABASE: ${DB_DATABASE}
+    ports:
+      - "3306:3306"
+    volumes:
+      - ./mysql/config/my.cnf:/etc/mysql/my.cnf
+      - ./mysql/data:/var/lib/mysql
+    networks:
+      - metapos-network
+
+networks:
+  metapos-network:
+    driver: bridge
