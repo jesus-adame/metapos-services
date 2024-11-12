@@ -1,6 +1,6 @@
 services:
   db:
-    container_name: metapos-services-mariadb
+    container_name: metapos-mariadb
     image: mysql:latest
     environment:
       MYSQL_ROOT_USER: ${DB_USERNAME}
@@ -12,8 +12,9 @@ services:
       - ./mysql/config/my.cnf:/etc/mysql/my.cnf
       - ./mysql/data:/var/lib/mysql
     networks:
-      - metapos-network
+      - metapos_network
 
 networks:
-  metapos-network:
+  metapos_network:
     driver: bridge
+    name: metapos_network
