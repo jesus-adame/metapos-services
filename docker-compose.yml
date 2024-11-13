@@ -18,3 +18,4 @@ networks:
   metapos_network:
     driver: bridge
     name: metapos_network
+    external: true
